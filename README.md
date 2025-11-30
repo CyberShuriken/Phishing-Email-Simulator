@@ -30,8 +30,8 @@ This simulator allows security teams to:
 
 1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/phishing-simulator.git
-    cd phishing-simulator
+    git clone https://github.com/CyberShuriken/Phishing-Email-Simulator.git
+    cd Phishing-Email-Simulator
     ```
 
 2.  **Install dependencies**:
@@ -68,3 +68,4 @@ Open any generated `.html` file in `sent_emails/` and click the link. Watch the 
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
