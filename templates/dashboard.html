@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phishing Campaign Dashboard</title>
+    <style>
+        body { font-family: sans-serif; background: #f4f4f9; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        .stats { display: flex; gap: 20px; margin-bottom: 30px; }
+        .card { flex: 1; background: #eee; padding: 15px; border-radius: 5px; text-align: center; }
+        .card h2 { margin: 0; font-size: 36px; color: #007bff; }
+        .card p { margin: 5px 0 0; color: #666; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 10px; border-bottom: 1px solid #ddd; }
+        th { background: #f8f9fa; }
+        .alert { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎣 Phishing Campaign Dashboard</h1>
+        
+        <div class="stats">
+            <div class="card">
+                <h2>{{ sent }}</h2>
+                <p>Emails Sent</p>
+            </div>
+            <div class="card">
+                <h2 style="color: #dc3545;">{{ clicked }}</h2>
+                <p>Victims Clicked</p>
+            </div>
+        </div>
+
+        <h3>Recent Victims</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Campaign</th>
+                    <th>Time Clicked</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in recent %}
+                <tr>
+                    <td>{{ row['name'] }}</td>
+                    <td>{{ row['email'] }}</td>
+                    <td>{{ row['campaign'] }}</td>
+                    <td class="alert">{{ row['clicked_at'] }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4" style="text-align:center; color:#999;">No clicks yet...</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
